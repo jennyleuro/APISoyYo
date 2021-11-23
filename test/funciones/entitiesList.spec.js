@@ -18,7 +18,7 @@ describe('test entities', function () {
     it('Success get entities', async () => { //Función Asincrona
 
         //Evento -> ServiceQuery
-        const resultado = handler.entitiesList(serviceQuery.serviceQuery({
+        const resultado = await handler.entitiesList(serviceQuery.serviceQuery({
 
             "startId": 2,
             "endId": 10

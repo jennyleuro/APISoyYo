@@ -7,9 +7,10 @@ async function resAsync(entityID) {
     }
     ).then((respuesta) => {
         return respuesta.json();
-    }).then((resp) => {
-        console.log(resp);
+    }).catch((error) => {
+        return error;
     })
+    return res;
 }
 
 module.exports.resAsync = resAsync;
