@@ -1,0 +1,28 @@
+{
+  "name": "apisoyyo",
+  "version": "1.0.0",
+  "description": "API que retorna listado de entidades dentro de un rango, ordenadas alfabéticamente, con sus propiedades",
+  "main": "index.js",
+  "scripts": {
+    "test": "env-cmd -f ./test/.env nyc --all --reporter=lcov --reporter=text-summary mocha -t 15000 --recursive \"./test/**/*.spec.js\" --reporter=nyan"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jennyleuro/APISoyYo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jennyleuro/APISoyYo/issues"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "env-cmd": "^10.0.1",
+    "mocha": "^5.2.0",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.15",
+    "nyc": "^14.1.1"
+  },
+  "homepage": "https://github.com/jennyleuro/APISoyYo#readme"
+}
