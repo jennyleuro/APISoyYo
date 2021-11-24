@@ -20,12 +20,33 @@ describe('test entities', function () {
         //Evento -> ServiceQuery
         const resultado = await handler.entitiesList(serviceQuery.serviceQuery({
 
-            "startId": 20,
-            "endId": 25
+            "startId": 2,
+            "endId": 10
 
         }, "GET", {}, {}, {}), "Context");
 
-        console.log(resultado);
+        expect(resultado.length).to.equal(9);
+
+    });
+    it('Error', async () => { //Función Asincrona
+
+        //Evento -> ServiceQuery
+        const resultado = await handler.entitiesList(serviceQuery.serviceQuery({
+
+            "startId": 100,
+            "endId": 110
+
+        }, "GET", {}, {}, {}), "Context");
+
+        expect(resultado).to.equal(404);
+
+    });
+    it('Error entrada', async () => { //Función Asincrona
+
+        //Evento -> ServiceQuery
+        const resultado = await handler.entitiesList(serviceQuery.serviceQuery({}, "GET", {}, {}, {}), "Context");
+
+        expect(resultado).to.equal(400);
 
     });
 

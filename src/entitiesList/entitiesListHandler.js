@@ -1,8 +1,9 @@
 //Entrada de todo
 
-//Import de la clase
+//Import de fetch
 const response = require("../../config/fetch");
 
+//Función que obtiene las entidades dentro del rango
 const range = async (startId, endId) => {
     try {
         let entities = [];
@@ -12,16 +13,15 @@ const range = async (startId, endId) => {
                 throw 404;
             }
             entities.push(entity.data);
-            //console.log(test.data);
         }
         return entities;
     } catch (error) {
-        console.log("Esta vacio");
         return error;
     }
 
 };
 
+//Funcion que ordena las entidades según su nombre de forma ascendente
 const orderByName = async (entitiesList) => {
     return entitiesList.sort((a, b) => {
         if (a.name > b.name) {
@@ -34,7 +34,15 @@ const orderByName = async (entitiesList) => {
     })
 }
 
+//Función que retorna las entidades ordenadas de manera asecendente según su nombre
 const entitiesList = async (event) => {
+
+    if(!event.body){
+        return 400;
+    }
+    if(!event.body["startId"] || !event.body["endId"]){
+        return 400;
+    }
 
     let startId = event.body["startId"];
     let endId = event.body["endId"];
@@ -47,9 +55,6 @@ const entitiesList = async (event) => {
     let entitiesOrdered = await orderByName(entitiesList);
 
     return entitiesOrdered;
-
-
-
 };
 
 module.exports.entitiesList = entitiesList;

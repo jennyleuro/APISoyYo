@@ -6,4 +6,4 @@ const entitiesRoute = require('./entities'); //Exportando entities
 
 router.use('/entities', entitiesRoute); //Definiendo ruta GET
 
-module.exports = router
+module.exports = router; //Exportando router
