@@ -20,8 +20,8 @@ describe('test entities', function () {
         //Evento -> ServiceQuery
         const resultado = await handler.entitiesList(serviceQuery.serviceQuery({
 
-            "startId": 2,
-            "endId": 10
+            "startId": 20,
+            "endId": 25
 
         }, "GET", {}, {}, {}), "Context");
 
